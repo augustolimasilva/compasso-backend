@@ -4,4 +4,8 @@ import com.example.compasso.model.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICityRepository extends JpaRepository<City, Long> {
+
+    City findByName(String name);
+
+    City findByState(String state);
 }

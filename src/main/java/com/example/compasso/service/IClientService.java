@@ -13,5 +13,5 @@ public interface IClientService {
 
     Response deleteById(Long id);
 
-    Client alter(Client client);
+    Client alter(Client client, Long id);
 }
