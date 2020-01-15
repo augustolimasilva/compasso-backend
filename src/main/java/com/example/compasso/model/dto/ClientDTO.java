@@ -1,6 +1,5 @@
 package com.example.compasso.model.dto;
 
-import com.example.compasso.model.City;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,16 +20,15 @@ public class ClientDTO {
     @NotNull(message = "{nameClient.validation.notnull}")
     private String name;
 
-    @Length(min = 5, max = 20, message = "{sex.validation.length}")
-    @NotNull(message = "{sex.validation.notnull}")
-    private String sex;
+    @Length(min = 5, max = 20, message = "{gender.validation.length}")
+    @NotNull(message = "{gender.validation.notnull}")
+    private String gender;
 
-    @Pattern(regexp = "^[0-3][0-9]/[0-3][0-9]/(?:[0-9][0-9])?[0-9][0-9]$", message = "{birthday.validation.formato}")
+    @Pattern(regexp = "^[0-3][0-9]/[0-3][0-9]/(?:[0-9][0-9])?[0-9][0-9]$", message = "{birthday.validation.format}")
     private String birthday;
 
-    @NotNull(message = "{age.validation.notnull}")
-    @Digits(integer = 3, fraction = 0, message = "{age.validation.digits}")
+    @Digits(integer = 3, fraction = 1, message = "{age.validation.digits}")
     private int age;
 
-    private City cidade;
+    private CityOfClientDTO city;
 }

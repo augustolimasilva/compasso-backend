@@ -1,11 +1,13 @@
 package com.example.compasso.repository;
 
 import com.example.compasso.model.City;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICityRepository extends JpaRepository<City, Long> {
 
-    City findByName(String name);
+    Page<City> findByName(String name, Pageable pageable);
 
-    City findByState(String state);
+    Page<City> findByState(String state, Pageable pageable);
 }

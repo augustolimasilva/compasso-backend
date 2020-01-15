@@ -12,7 +12,9 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CityDTO {
+public class CityOfClientDTO {
+
+    private Long id;
 
     @Length(min = 5, max = 200, message = "{name.validation.length}")
     @NotNull(message = "{name.validation.notnull}")

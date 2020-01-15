@@ -22,8 +22,8 @@ public class Client {
     @Column(name = "name", length = 100, nullable = false)
     private String name;
 
-    @Column(name = "sex", length = 20, nullable = false)
-    private String sex;
+    @Column(name = "gender", length = 20, nullable = false)
+    private String gender;
 
     @Column(name = "birthday", length = 20, nullable = false)
     private String birthday;

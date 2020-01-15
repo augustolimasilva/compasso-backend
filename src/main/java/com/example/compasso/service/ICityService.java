@@ -1,12 +1,31 @@
 package com.example.compasso.service;
 
 import com.example.compasso.model.City;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ICityService {
 
+    /**
+     * Method to save the city
+     * @param city
+     * @return city
+     */
     City insert (City city);
 
-    City findByName(String name);
+    /**
+     * Method to find citys by name
+     * @param name
+     * @param pageable
+     * @return Page<City>
+     */
+    Page<City> findByName(String name,Pageable pageable);
 
-    City findByState(String state);
+    /**
+     * Method to find citys by state
+     * @param state
+     * @param pageable
+     * @return Page<City>
+     */
+    Page<City> findByState(String state, Pageable pageable);
 }

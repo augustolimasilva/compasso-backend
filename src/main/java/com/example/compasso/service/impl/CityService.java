@@ -1,14 +1,12 @@
 package com.example.compasso.service.impl;
 
-import com.example.compasso.exception.CustomException;
 import com.example.compasso.model.City;
 import com.example.compasso.repository.ICityRepository;
 import com.example.compasso.service.ICityService;
-import com.example.compasso.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class CityService implements ICityService {
@@ -22,24 +20,12 @@ public class CityService implements ICityService {
     }
 
     @Override
-    public City findByName(String name) {
-        Optional<City> city = Optional.ofNullable(iCityRepository.findByName(name));
-
-        if(city.isPresent()){
-          return city.get();
-        }else{
-            throw new CustomException(Constants.CITY_NOT_FOUND);
-        }
+    public Page<City> findByName(String name, Pageable pageable) {
+        return iCityRepository.findByName(name, pageable);
     }
 
     @Override
-    public City findByState(String state) {
-        Optional<City> city = Optional.ofNullable(iCityRepository.findByState(state));
-
-        if(city.isPresent()){
-            return city.get();
-        }else{
-            throw new CustomException(Constants.CITY_NOT_FOUND);
-        }
+    public Page<City> findByState(String state, Pageable pageable) {
+        return iCityRepository.findByState(state, pageable);
     }
 }
